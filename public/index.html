@@ -10,6 +10,31 @@
     <div class="text-center text-white bg-primary bg-opacity-75 m-2 p-2">
       <h1>My Banner</h1>
     </div>
+    
+    <!-- Top level Menus -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <button id="menu-home" class="btn btn-outline-primary me-2">Home</button>
+            </li>
+            <li id="menu-menu2" class="nav-item">
+              <button class="btn btn-outline-primary me-2">Menu2</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-danger me-2">Sign Out</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- placeholder for single page view -->
+    <div id="root" class="m-2 p-2 bg-secondary bg-opacity-25">Single Page View</div>
 
     <!-- Firebase core library script -->
     <script type="module" src="./controller/firebase_core.js"></script>

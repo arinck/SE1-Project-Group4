@@ -1,11 +1,6 @@
-<h1>Computer Square</h1>
-<form>
-    <div class="form-group">
-        <label for="number">Enter a number: </label>
-        <input type="number" name="number" id="number"
-            required min="1" max="100" class="form-control"
-            placeholder="Enter a number 1 - 100" >
-    </div>
-    <button type="submit" class="btn btn-outline-primary">Submit</button>
+<h1>To Do List</h1>
+<form method="post">
+    <input type="text" name="title" size="40" required minlength="2" placeholder="Enter title">
+    <button type="submit" class="btn btn-outline-danger">Create</button>
 </form>
-<ul id="display" class="bg-success bg-opacity-25"></ul>
+<div id="todo-container"></div>

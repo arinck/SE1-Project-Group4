@@ -9,7 +9,7 @@ import {
     updateDoc,
     deleteDoc,
     doc,
-} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
 
 import { app } from "./firebase_core.js";
 import { ToDoItem } from "../model/ToDoItem.js";

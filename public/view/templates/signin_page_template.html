@@ -1,13 +1,47 @@
+<!-- Sign-In Form -->
 <form>
-    <h2 class="text-center">Sign in, please!</h2>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input name="email" required type="email" class="form-control" id="email">
+  <h2 class="text-center">Sign in, please!</h2>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input name="email" required type="email" class="form-control" id="email">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input name="password" type="password" required minlength="6" class="form-control" id="password">
+  </div>
+  <button type="submit" class="btn btn-outline-danger">Submit</button>
+</form>
+
+<!-- Button to trigger "Create New User" modal -->
+<button id="create-new-user" class="btn btn-outline-primary">Create New User</button>
+
+<!-- Modal for Creating a New User -->
+<div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Form -->
+      <form id="create-user-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createUserModalLabel">Create New User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Email Input -->
+          <div class="mb-3">
+            <label for="new-user-email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="new-user-email" required>
+          </div>
+          <!-- Password Input -->
+          <div class="mb-3">
+            <label for="new-user-password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="new-user-password" required minlength="6">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </div>
+      </form>
     </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input name="password" type="password" required minlength="6"
-       class="form-control" id="password">
-    </div>
-    <button type="submit" class="btn btn-outline-danger">Submit</button>
-  </form>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+/* Target modal-body with higher specificity */
+.modal-content .modal-body {
+    background: rgba(25, 158, 54, 0.8) !important; /* Transparent white */
+    border-radius: 10px !important; /* Rounded corners */
+    padding: 20px !important; /* Override Bootstrap's padding */
+    font-family: 'Arial', sans-serif !important; /* Ensure custom font */
+    color: #333 !important; /* Custom text color */
+  }
+  
+  
+
+  
+  
+  

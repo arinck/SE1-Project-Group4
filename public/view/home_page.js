@@ -5,10 +5,9 @@ import { onSubmitCreateForm, onClickAddDeadline, onClickExpandButton, onKeyDownN
 import { getToDoTitleList } from "../controller/firestore_controller.js";
 import { DEV } from "../model/constants.js";
 
-
 export async function homePageView() {
     if (!currentUser) {
-        root.innerHTML = await protectedView()
+        root.innerHTML = await protectedView();
         return;
     }
 
@@ -39,6 +38,7 @@ export async function homePageView() {
         container.appendChild(buildCard(title));
     });
 
+    setupSearchFeature(toDoTitlelList); // Set up search functionality
 }
 
 export function buildCard(todoTitle) {
@@ -81,7 +81,7 @@ export function buildCardText(titleDocId, itemList) {
     if (itemList.length != 0) {
         itemList.forEach(item => {
             ul.appendChild(createToDoItemElement(item));
-        })
+        });
     }
 
     const newItemInput = document.createElement('input');
@@ -90,7 +90,7 @@ export function buildCardText(titleDocId, itemList) {
     newItemInput.placeholder = "Enter an item";
     newItemInput.onkeydown = function (e) {
         onKeyDownNewItemInput(e, titleDocId);
-    }
+    };
     p.appendChild(newItemInput);
 
     return p;
@@ -108,4 +108,32 @@ export function createToDoItemElement(item) {
     const input = li.querySelector('input');
     input.onkeydown = onKeyDownUpdateItem;
     return li;
+}
+
+function setupSearchFeature(allToDoTitles) {
+    const searchBar = document.getElementById("search-bar");
+    const container = document.getElementById("todo-container");
+
+    // Prevent form submission when pressing Enter in the search bar
+    searchBar.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent the form from submitting
+        }
+    });
+
+    // Filter ToDo Titles as the user types
+    searchBar.addEventListener("input", (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredTitles = allToDoTitles.filter(title =>
+            title.title.toLowerCase().includes(searchTerm)
+        );
+        container.innerHTML = ''; // Clear existing titles
+        if (filteredTitles.length === 0) {
+            container.innerHTML = "<p>No matching titles found.</p>";
+        } else {
+            filteredTitles.forEach(title => {
+                container.appendChild(buildCard(title));
+            });
+        }
+    });
 }

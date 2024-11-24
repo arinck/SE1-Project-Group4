@@ -70,3 +70,13 @@ export async function addToDoItem(todoItem) {
     const docRef = doc(db, TODO_ITEM_COLLECTION, itemId);
     await deleteDoc(docRef);
  }
+
+ export async function getAllToDoTitles(uid) {
+   const db = getFirestore();
+   const titlesCollection = collection(db, "todoTitles");
+   const snapshot = await getDocs(titlesCollection);
+   const titles = snapshot.docs
+       .map((doc) => ({ docId: doc.id, ...doc.data() }))
+       .filter((title) => title.uid === uid); // Filter by user ID
+   return titles;
+}

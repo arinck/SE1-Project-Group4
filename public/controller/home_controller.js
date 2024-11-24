@@ -12,7 +12,8 @@ export async function onSubmitCreateForm(e) {
     const title = e.target.title.value;
     const uid = currentUser.uid;
     const timestamp = Date.now();
-    const todoTitle = new ToDoTitle({title, uid, timestamp});
+    const deadline = 'number';
+    const todoTitle = new ToDoTitle({title, uid, timestamp, deadline});
 
     const progress = progressMessage('Creating...');
     e.target.prepend(progress);
@@ -32,6 +33,38 @@ export async function onSubmitCreateForm(e) {
     const container = document.getElementById('todo-container');
     container.prepend(buildCard(todoTitle));
     e.target.title.value = '';
+}
+
+export async function onClickAddDeadline(e) {
+        e.preventDefault(); // Prevent the default form submission behavior
+
+    // Get the modal element
+    const deadlineModal = document.getElementById('createUserModal');
+
+
+    // Initialize the modal
+    const modal = new bootstrap.Modal(deadlineModal);
+
+
+    // Show the modal
+    modal.show();
+
+    // Attach submit event listener to the form inside the modal
+    const form = deadlineModal.querySelector('form');
+    form.onsubmit = async (event) => {
+        event.preventDefault();
+
+        const newDeadline = form.querySelector('#new-user-email').value;
+
+        try {
+            await set_deadline(newDeadline);
+            alert('New Deadline set!');
+            modal.hide();
+        } catch (error) {
+            alert('Error setting deadline ' + error.message);
+        }
+    };
+
 }
 
 export async function onClickExpandButton(e) {

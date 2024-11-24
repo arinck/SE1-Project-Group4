@@ -1,7 +1,7 @@
 import { currentUser } from "../controller/firebase_auth.js";
 import { root } from "./elements.js";
 import { protectedView } from "./protected_view.js";
-import { onSubmitCreateForm, onClickExpandButton, onKeyDownNewItemInput, onMouseOverItem, onMouseOutItem, onKeyDownUpdateItem } from "../controller/home_controller.js";
+import { onSubmitCreateForm, onClickAddDeadline, onClickExpandButton, onKeyDownNewItemInput, onMouseOverItem, onMouseOutItem, onKeyDownUpdateItem } from "../controller/home_controller.js";
 import { getToDoTitleList } from "../controller/firestore_controller.js";
 import { DEV } from "../model/constants.js";
 
@@ -49,12 +49,26 @@ export function buildCard(todoTitle) {
         <div id="${todoTitle.docId}" class="card-body">
             <button class="btn btn-outline-primary">+</button>
             <span class="fs-3 card-title">${todoTitle.title}</span>
+            <deadline class = "btn btn-outline-primary">${todoTitle.deadline}</deadline>
         </div>
     `;
 
     const expandButton = div.querySelector('button');
     expandButton.onclick = onClickExpandButton;
+
+    const divWrapper = document.createElement('div'); // <div></div>
+    divWrapper.style.width = '400px';
+    divWrapper.classList.add('m-4', 'p-4');
+
+    // attach form submit event listener
+    const form = divWrapper.getElementsByTagName('form')[0];
+    form.onsubmit = signinFirebase;
+
+    const deadlineButton = divWrapper.querySelector('deadline');
+    deadlineButton.onclick = onClickAddDeadline;
+
     return div;
+
 }
 
 export function buildCardText(titleDocId, itemList) {

@@ -3,7 +3,12 @@ export class ToDoTitle {
         this.title = data.title;
         this.uid = data.uid;
         this.timestamp = data.timestamp;
+        this.deadline = data.deadline; // custom deadline for title
         this.docId = docId;
+    }
+
+    set_deadline(deadline){
+        this.deadline = deadline;
     }
 
     set_docId(id){
@@ -15,6 +20,7 @@ export class ToDoTitle {
             title: this.title,
             uid: this.uid,
             timestamp: this.timestamp,
+            deadline: this.deadline, // sends deadline data to firebase
         }
     }
 }

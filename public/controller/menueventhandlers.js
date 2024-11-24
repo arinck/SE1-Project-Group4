@@ -131,7 +131,14 @@ export async function onClickUserInfo(e) {
 
     // Event listener for Dark Mode button
     darkModeButton.onclick = function() {
-        alert('Dark mode toggled (functionality not implemented).');
+        let darkMode = document.body.classList.contains('dark-mode');
+        
+        if (darkMode) {
+            document.body.classList.replace('dark-mode', 'light-mode');
+        }
+        else {
+            document.body.classList.replace('light-mode', 'dark-mode');
+        }
     };
 
     // Event listener for Close button

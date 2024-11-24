@@ -1,14 +1,74 @@
 /* Target modal-body with higher specificity */
 .modal-content .modal-body {
-    background: rgba(25, 158, 54, 0.8) !important; /* Transparent white */
-    border-radius: 10px !important; /* Rounded corners */
-    padding: 20px !important; /* Override Bootstrap's padding */
-    font-family: 'Arial', sans-serif !important; /* Ensure custom font */
-    color: #333 !important; /* Custom text color */
-  }
-  
-  
+  background: rgba(25, 158, 54, 0.8) !important; /* Transparent white */
+  border-radius: 10px !important; /* Rounded corners */
+  padding: 20px !important; /* Override Bootstrap's padding */
+  font-family: "Arial", sans-serif !important; /* Ensure custom font */
+  color: #333 !important; /* Custom text color */
+}
 
-  
-  
-  
+/*DARK MODE */
+body.dark-mode {
+  --bs-body-bg: rgba(35, 35, 35);
+  --bs-tertiary-bg-rgb: rgba(35, 35, 35);
+  --bs-heading-color: white;
+  --bs-navbar-toggler-border-color: white !important;
+  --button-bg: rgba(15, 15, 15, 1);
+  --bs-card-color: white;
+}
+body.dark-mode .card-title {
+  color: white !important;
+}
+body.dark-mode .navbar-toggler-icon {
+  filter: inver();
+  -webkit-filter: invert();
+}
+body.dark-mode label {
+  color: white;
+}
+body.dark-mode input {
+  background-color: rgb(60, 60, 60);
+  color: white;
+}
+body.dark-mode input::placeholder {
+  color: rgb(240, 240, 240);
+}
+body.darkmode .navbar-toggler {
+  border-color: white;
+}
+body.dark-mode div[id="user-info-popup"] {
+  background-color: rgba(35, 35, 35) !important;
+}
+body.dark-mode div[id="user-info-popup"] button {
+  color: white;
+  background-color: var(--button-bg);
+  border-color: white !important;
+}
+
+/*LAYOUT*/
+form {
+  display: flex;
+}
+div[id="root"] {
+  display: flex;
+}
+form > input {
+  flex-basis: calc(99% - 8px);
+  margin-right: 8px;
+}
+div[id="todo-container"] {
+  display: flex;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.card {
+  flex-basis: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.card-body > button {
+  margin-right: 4px;
+}
+.card-body > span {
+  vertical-align: middle;
+}

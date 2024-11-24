@@ -6,9 +6,45 @@
     font-family: 'Arial', sans-serif !important; /* Ensure custom font */
     color: #333 !important; /* Custom text color */
   }
-  
-  
 
-  
-  
-  
+
+
+
+
+  /*DARK MODE */
+   body.dark-mode { 
+    --bs-body-bg: rgba(35, 35, 35); 
+    --bs-tertiary-bg-rgb: rgba(35, 35, 35);
+    --bs-heading-color: white;
+    --bs-navbar-toggler-border-color: white !important;
+    --button-bg:rgba(15, 15, 15, 1);
+    --bs-card-color:white;
+  }
+  body.dark-mode .card-title {
+    color:white!important;
+  }
+  body.dark-mode .navbar-toggler-icon {
+    filter:inver();
+    -webkit-filter:invert();
+  }
+  body.dark-mode label {
+    color:white;
+  }
+  body.dark-mode input {
+    background-color: rgb(60, 60, 60);
+    color:white;
+  }
+  body.dark-mode input::placeholder {
+    color:rgb(240, 240, 240);
+  }
+  body.darkmode .navbar-toggler {
+    border-color: white;
+  }
+  body.dark-mode div[id="user-info-popup"] {
+    background-color: rgba(35, 35, 35) !important;
+  }
+  body.dark-mode div[id="user-info-popup"] button {
+    color:white;
+    background-color:var(--button-bg);
+    border-color:white !important;
+  }

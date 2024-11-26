@@ -36,21 +36,35 @@ export async function onSubmitCreateForm(e) {
 }
 
 export async function onClickAddDeadline(e) {
-        e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault(); // Prevent the default form submission behavior
 
-    // Get the modal element
-    const deadlineModal = document.getElementById('createUserModal');
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.zIndex = '1000';
+
+    const popup = document.createElement('div');
+    popup.id = 'user-info-popup';
+    popup.style.backgroundColor = '#fff';
+    popup.style.padding = '20px';
+    popup.style.borderRadius = '8px';
+    popup.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+    popup.style.width = '300px';
+    popup.style.textAlign = 'center';
+
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
 
 
-    // Initialize the modal
-    const modal = new bootstrap.Modal(deadlineModal);
 
-
-    // Show the modal
-    modal.show();
-
-    // Attach submit event listener to the form inside the modal
-    const form = deadlineModal.querySelector('form');
     form.onsubmit = async (event) => {
         event.preventDefault();
 

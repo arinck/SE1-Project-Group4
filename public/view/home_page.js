@@ -54,18 +54,11 @@ export function buildCard(todoTitle) {
     `;
 
     const expandButton = div.querySelector('button');
-    expandButton.onclick = onClickExpandButton;
-
-    const divWrapper = document.createElement('div'); // <div></div>
-    divWrapper.style.width = '400px';
-    divWrapper.classList.add('m-4', 'p-4');
-
-    // attach form submit event listener
-    const form = divWrapper.getElementsByTagName('form')[0];
-    form.onsubmit = signinFirebase;
-
-    const deadlineButton = divWrapper.querySelector('deadline');
-    deadlineButton.onclick = onClickAddDeadline;
+    expandButton.onclick = onClickAddDeadline;//onClickExpandButton;
+    
+    // deadline button
+    // const deadlineButton = div.querySelector('deadline');
+    // deadlineButton.onclick = onClickAddDeadline;
 
     return div;
 
